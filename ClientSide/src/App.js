@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import TopNav from './component/TopNav';
+import AppRouter from './component/AppRouter';
 
 function App() {
   return<>
   <div>
-    <TopNav/>
+   <AppRouter/>
   </div>
   </>
 }

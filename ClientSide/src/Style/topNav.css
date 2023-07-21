@@ -1,7 +1,7 @@
 #top-nav{
     height: 90px;
     width: 100%;
-    background-color: grey;
+    background-color: rgb(115, 97, 185);
 }
 #nav-container{
     display: flex;
