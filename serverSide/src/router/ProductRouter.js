@@ -1,6 +1,6 @@
 const express =require("express");
 const Router = express.Router();
-const {PostProduct,getProduct} =  require("../controller/controllerProduct")
+const {PostProduct,getProduct ,searchfunction} =  require("../controller/controllerProduct")
 
 
 Router
@@ -8,5 +8,8 @@ Router
 .post(PostProduct)
 .get(getProduct)
 
+Router
+.route("/find")
+.get(searchfunction)
 
 module.exports= Router;
