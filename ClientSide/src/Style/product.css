@@ -70,16 +70,11 @@
     padding: 20px;
 }
 .branding-of-product{
-    display: flex;
-    justify-content: space-between;
+    margin-top: 4px;
 }
-.quantity-of-product{
-    display: flex;
-    justify-content: space-around;
-}
+
 .incremet-dec-btn{
-    height:10px;
-    margin-left:2px
+    height:20px;
 }
 .quantity-naming{
     font-weight:bold
@@ -89,4 +84,9 @@
     gap:40px;
     flex-wrap: wrap;
     margin-left: 130px;
+}
+.naming-of-the-contity-number{
+    font-size: large;
+    font-weight: bold;
+    margin: 20px;
 }
