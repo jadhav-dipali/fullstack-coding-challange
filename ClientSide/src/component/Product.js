@@ -1,9 +1,11 @@
 import "../Style/product.css"
-import Ract ,{useEffect, useState} from "react"
+import Ract ,{useEffect, useState, useContext} from "react"
 import TopNav from "./TopNav"
-import plus from "../Images/plus-icon-black-2.png"
-import minus from "../Images/Minus-Symbol-PNG-Photo-Image.png"
-const API = "http://localhost:4000/product"
+import{NotiContext} from "../Context/ProductContex"
+
+
+const API = "http://localhost:4000/product";
+
 
 
 export default function Product(){
@@ -15,6 +17,15 @@ export default function Product(){
       .then((res)=>res.json())
       .then((res)=>setData([...res.data]))
     },[])
+
+    const {num,setNum,setAddProduct}= useContext(NotiContext);
+    // const num =useContext(NotiContext);
+    
+     function AddToCard(id){
+        setNum(num+1)
+       let ans= data.find(e=>e._id===id);
+       setAddProduct(d=>[...d,ans]);    
+     }
     return <>
     <TopNav/>
     <div className="main-container">
@@ -27,14 +38,7 @@ export default function Product(){
     return <div id="card" key={i}>
     <div className="branding-of-product">     
      <h4 id="brand">{d.name}</h4>
-      <div className="quantity-of-product">
-       <span className="quantity-naming">Quanitity</span>
-       <div>
-           <img  src={plus}  className="incremet-dec-btn"/>
-           <span className="incremet-dec-btn">0</span>
-           <img  src={minus} className="incremet-dec-btn"/>
-       </div>
-      </div>
+      
    </div>  
 
    <div id="image-container">
@@ -42,7 +46,7 @@ export default function Product(){
    </div>
    <div id="price-container">
        <h3>{d.prize}</h3>
-       <button id="btn">Add To Card</button>
+       <button id="btn" onClick={()=>AddToCard(d._id)}>Add To Card</button>
    </div>
  
 </div>
