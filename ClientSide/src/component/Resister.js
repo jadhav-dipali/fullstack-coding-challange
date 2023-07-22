@@ -41,7 +41,7 @@ export default function Register(){
         setConfirmPassErr(true)
      }else{
       setLoder(true)
-      fetch("http://localhost:4000/user/signup",{
+      fetch("https://online-market.onrender.com/user/signup",{
            method:"POST",
            headers:{
             "content-type":"application/json"

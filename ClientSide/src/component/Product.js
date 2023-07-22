@@ -5,8 +5,7 @@ import{NotiContext} from "../Context/ProductContex"
 import LandingPage from "./LandingPage";
 
 
-const API = "http://localhost:4000/product";
-const serachAPI = "localhost:4000/product/find/?search"
+const API = "https://online-market.onrender.com/product";
 
 export default function Product(){
    
