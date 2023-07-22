@@ -2,6 +2,7 @@ import "../Style/product.css"
 import Ract ,{useEffect, useState, useContext} from "react"
 import TopNav from "./TopNav"
 import{NotiContext} from "../Context/ProductContex"
+import LandingPage from "./LandingPage";
 
 
 const API = "http://localhost:4000/product";
@@ -23,9 +24,7 @@ export default function Product(){
     },[])
    
 
-    const {num,setNum,setAddProduct}= useContext(NotiContext);
-    // const num =useContext(NotiContext);
-    
+    const {num,setNum,setAddProduct}= useContext(NotiContext);    
      function AddToCard(id){
         setNum(num+1)
        let ans= data.find(e=>e._id===id);
@@ -38,9 +37,10 @@ export default function Product(){
       setSearchData(search_regex)
       setSearch("")
     }
-    
+    const token = localStorage.getItem("user-token");
     return <>
-    <TopNav/>
+    {token?<>
+      <TopNav/>
     <div className="main-container">
     <div id="search-container">
     <input type="text" placeholder="Search by Name..."  id="search-input-feild" onChange={(e)=>{setSearch(e.target.value)}} value={search}/>
@@ -86,5 +86,7 @@ export default function Product(){
    })}
    </div>}
 </div>
+    </>:<LandingPage/>}
+   
 </>
 }
