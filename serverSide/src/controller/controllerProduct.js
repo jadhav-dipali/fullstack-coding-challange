@@ -19,7 +19,22 @@ const getProduct = async(req, res)=>{
   }
 }
 
+
+const searchfunction =  async(req, res)=>{
+  try{
+     let serachTitle = await  Product.find({name:new RegExp(req.query.search, "i")});//10[{},{}]
+      if(serachTitle.length){//10 //
+              res.status(200).json({result:serachTitle}); 
+      }else{
+          res.status(400).send("no such result found");  
+      }
+  }catch(err){
+      res.status(404).send(err);
+  }
+}
+
 module.exports = {
     PostProduct,
     getProduct,
+    searchfunction
 }
