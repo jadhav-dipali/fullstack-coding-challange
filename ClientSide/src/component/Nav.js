@@ -10,9 +10,7 @@ export default function TopNav (){
        <nav id="top-nav">
              <div id="nav-container">
              <Link to="/home"> <h1 id="title">Online Market</h1></Link> 
-                 <Link to="/product" ><h4 id="pro">Product</h4></Link>
-                 <Link to="/order"><div   id="logo-container"> <img src={logo}  id="logo" onClick={()=>setNum(null)}/>{num&&<div id="adddd">{num}</div>}</div></Link>
-                  <Link to="/" ><h4 onClick={()=>localStorage.clear()} className="log-out-btn">logout</h4></Link>
+           <div   id="logo-container"> <img src={logo}  id="logo" onClick={()=>setNum(null)}/>{num&&<div id="adddd">{num}</div>}</div>
              </div>
          </nav>
      </>

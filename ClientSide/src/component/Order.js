@@ -5,6 +5,7 @@ import "../Style/product.css"
 import { NotiContext } from "../Context/ProductContex"
 import plus from "../Images/plus-icon-black-2.png"
 import minus from "../Images/Minus-Symbol-PNG-Photo-Image.png"
+import LandingPage from "./LandingPage"
 
 export default function Order(){
     let {addProduct,setAddProduct} = useContext(NotiContext);
@@ -15,9 +16,10 @@ export default function Order(){
     function deleteFunction(id){
       setAddProduct(addProduct.filter(t=>t._id!==id))
     }
- 
+    const token = localStorage.getItem("user-token");
     return<>
-     <TopNav/>
+    {token?<>
+      <TopNav/>
     <h1 id="name-cart"><i>Shoping Cart</i></h1>
        <div id="Order-container">
     
@@ -55,5 +57,7 @@ export default function Order(){
 
       
     </div>
+    </>:<LandingPage/>}
+    
     </>
 }
